@@ -14,7 +14,7 @@
     <mvc:resources mapping="/static/**" location="/static/"/>
 
     <!-- 配置包扫描器 @Component,@Repository,@Service,@Controller-->
-    <context:component-scan base-package="com.zhou.ssm"/> 
+    <context:component-scan base-package="com.zhou.ssm.controller"/> 
 
     <!-- 开启springMVC的注解驱动，使得url可以映射到对应的controller -->  
     <mvc:annotation-driven />  

@@ -1,0 +1,27 @@
+log4j.rootLogger=DEBUG,Console,File,R_INFO,R_ERROR
+
+log4j.appender.Console=org.apache.log4j.ConsoleAppender
+log4j.appender.Console.Target=System.out
+log4j.appender.Console.layout=org.apache.log4j.PatternLayout
+log4j.appender.Console.layout.ConversionPattern=[%c]%m%n
+
+log4j.appender.File=org.apache.log4j.RollingFileAppender 
+log4j.appender.File.File=${catalina.home}/logs/sso/ssocms.log
+log4j.appender.File.MaxFileSize=10MB
+log4j.appender.File.Threshold=ALL
+log4j.appender.File.layout=org.apache.log4j.PatternLayout
+log4j.appender.File.layout.ConversionPattern=[%p][%d{yyyy-MM-dd HH\:mm\:ss,SSS}][%c]%m%n
+
+log4j.appender.R_INFO=org.apache.log4j.DailyRollingFileAppender
+log4j.appender.R_INFO.File=${catalina.home}/logs/sso/info.log
+log4j.appender.R_INFO.Threshold=INFO,DEBUG
+log4j.appender.R_INFO.DatePattern='.'yyyy-MM-dd'.log'
+log4j.appender.R_INFO.layout=org.apache.log4j.PatternLayout
+log4j.appender.R_INFO.layout.ConversionPattern=[%p] %d %c - %m%n
+
+log4j.appender.R_ERROR=org.apache.log4j.DailyRollingFileAppender
+log4j.appender.R_ERROR.File=${catalina.home}/logs/sso/error.log
+log4j.appender.R_ERROR.Threshold=ERROR
+log4j.appender.R_ERROR.DatePattern='.'yyyy-MM-dd'.log'
+log4j.appender.R_ERROR.layout=org.apache.log4j.PatternLayout
+log4j.appender.R_ERROR.layout.ConversionPattern=[%p] %d %c - %m%n
