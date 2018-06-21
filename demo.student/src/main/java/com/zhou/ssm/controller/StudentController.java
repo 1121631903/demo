@@ -5,7 +5,6 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -19,11 +18,18 @@ public class StudentController {
  
 	
     @RequestMapping("findList") 
-    public ModelAndView findList(Model model) {
+    public ModelAndView findList() {
     	ModelAndView  mv = new ModelAndView();
     	List<Student> list= studentService.findList();
     	mv.addObject("list", list);
-    	mv.setViewName("index2");
+    	mv.setViewName("model/student-list");
+    	return mv;
+       
+    }
+    @RequestMapping("add") 
+    public ModelAndView addView() {
+    	ModelAndView  mv = new ModelAndView(); 
+    	mv.setViewName("model/student-add");
     	return mv;
        
     }
